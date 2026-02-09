@@ -1,0 +1,22 @@
+<RCC>
+    <qresource prefix="/coins">
+        <file>img/coin0.png</file>
+        <file>img/coin1.png</file>
+        <file>img/coin2.png</file>
+        <file>img/coin5.png</file>
+        <file>img/coin4.png</file>
+        <file>img/coin3.png</file>
+    </qresource>
+    <qresource prefix="/other">
+        <file>img/backgnd.png</file>
+        <file>img/title.png</file>
+        <file>img/start_btn.png</file>
+        <file>img/back1.png</file>
+        <file>img/back2.png</file>
+        <file>img/backgnd2.png</file>
+        <file>img/succ.png</file>
+        <file>img/board.png</file>
+        <file>sound/sound1.wav</file>
+        <file>sound/sound2.wav</file>
+    </qresource>
+</RCC>
