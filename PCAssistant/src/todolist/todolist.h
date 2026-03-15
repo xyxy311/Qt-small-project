@@ -28,16 +28,13 @@ private slots:
 private:
     Ui::ToDoList *ui;
 
+    bool isModified;   // 发生修改
     QString m_dataPath;
     QStandardItemModel* m_toDoListModel;  // 储存代办事项
-    QStringList m_defaultItems;  // 默认展示
 
     QStandardItem* newTodoItem(QString text = "新建代办", bool checked = false);  // 新建代办项
+    bool loadTasks();  // 加载数据
 
-    // 加载保存数据相关的
-    bool loadTasks();
-    QString getTaskFilePath();
-    bool isModified;   // 发生修改
 };
 
 #endif // TODOLIST_H

@@ -47,6 +47,16 @@
         </item>
        </layout>
       </widget>
+      <widget class="QWidget" name="tab_notes">
+       <attribute name="title">
+        <string>速记</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_4">
+        <item>
+         <widget class="Notes" name="widget_notes" native="true"/>
+        </item>
+       </layout>
+      </widget>
      </widget>
     </item>
    </layout>
@@ -57,7 +67,7 @@
      <x>0</x>
      <y>0</y>
      <width>343</width>
-     <height>20</height>
+     <height>32</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuStart">
@@ -92,6 +102,12 @@
    <class>Timer</class>
    <extends>QWidget</extends>
    <header>timer.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>Notes</class>
+   <extends>QWidget</extends>
+   <header>notes.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

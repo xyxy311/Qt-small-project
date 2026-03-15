@@ -1,6 +1,7 @@
-#include "ToDoList.h"
-#include "ui_ToDoList.h"
+#include "todolist.h"
+#include "ui_todolist.h"
 #include "customdelegate.h"
+#include "globle.h"
 #include <QStringList>
 #include <QMessageBox>
 #include <QCoreApplication>
@@ -19,7 +20,7 @@ ToDoList::ToDoList(QWidget *parent)
 {
     ui->setupUi(this);
     isModified = false;
-    m_dataPath = getTaskFilePath();
+    m_dataPath = AppData::dataDir + "/task.json";
     qDebug() << m_dataPath;
 
     ui->toDolistView->setItemDelegate(new CustomDelegate(ui->toDolistView));
@@ -33,7 +34,8 @@ ToDoList::ToDoList(QWidget *parent)
     {
         // 创建默认项
         qDebug() << "将创建默认项";
-        m_defaultItems << "默认项1" << "默认项2" << "默认项3";
+        QStringList m_defaultItems;
+        m_defaultItems << "欢迎使用" << "Todo List";
 
         for (auto item : m_defaultItems) {
             QStandardItem* aItem = new QStandardItem(item);
@@ -154,24 +156,6 @@ bool ToDoList::loadTasks()
 
     qDebug() << "加载todo成功";
     return true;
-}
-
-
-// 获取保存数据文件的位置
-QString ToDoList::getTaskFilePath()
-{
-    QString appDir = QCoreApplication::applicationDirPath();
-    QString filePath = appDir + "/tasks.json";
-
-    // 检查应用程序目录是否可写（简单测试）
-    QFileInfo dirInfo(appDir);
-    if (!dirInfo.isWritable()) {
-        // 不可写，回退到用户数据目录
-        QString fallbackPath = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation);
-        QDir().mkpath(fallbackPath); // 确保目录存在
-        filePath = fallbackPath + "/tasks.json";
-    }
-    return filePath;
 }
 
 

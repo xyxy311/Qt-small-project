@@ -17,9 +17,7 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-
-signals:
-    void save_toDoList();
+    static QString getDataDir();
 
 protected:
     void closeEvent(QCloseEvent *e) override;
